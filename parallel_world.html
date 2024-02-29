@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel_world</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+        }
+        @media (max-width:400px)
+        {
+            .container .img1 {
+                width:100vw;
+                height:200px;
+            }
+            .container .section{
+                padding:15px;
+            }
+            .container .section2
+            {
+                padding: 15px;
+            }
+            .container .section3{
+                padding: 15px;
+            }
+        }
+
+        .img1 {
+            width: 100vw;
+            height: 80%;
+            background-image: url(https://th.bing.com/th?id=OIP.e0UFFO7Y0pPXyhXAqT2L5gAAAA&w=316&h=197&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .bgtext {
+            background-color: rgb(44, 39, 39);
+            width: 22vw;
+            height: 8vh;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            text-transform: uppercase;
+        }
+
+        .text {
+            color: white;
+            font-size: 2vw;
+            font-weight: lighter;
+
+        }
+
+        .section {
+            padding: 5px;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 4rem;
+        }
+
+        .section h1 {
+            margin: 0rem 1.5rem 1.5rem 1.5rem;
+            font-family: cursive;
+            color: rgb(79, 74, 74);
+        }
+
+        .img2 {
+            width: 100vw;
+            height: 50%;
+            background-image: url(data:image/jpeg;base64,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);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bgtext2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text2 {
+            color: rgb(28, 26, 26);
+            font-size: 3vw;
+            font-weight: lighter;
+            width: 20vw;
+            height: 8vh;
+            background-color: rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding-top: 0.8rem;
+            font-weight: bold;
+
+        }
+
+        .section2 {
+            padding: 5px;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            padding-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .section2 h1 {
+            margin: 0rem 1.5rem 1.5rem 1.5rem;
+            font-family: cursive;
+            color: white;
+        }
+
+        .img3 {
+            width: 100vw;
+            height: 50%;
+            background-image: url(https://th.bing.com/th?id=OIP.l8LRdIdnKl32vE4GOB4l0wHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text3 {
+            font-size: 4vw;
+            color: white;
+            font-weight: 500;
+        }
+
+        .section3 {
+            padding: 4rem;
+            padding-top: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.8);
+
+
+        }
+
+        .section3 h1 {
+            padding-bottom: 2rem;
+        }
+        .bgtext3
+        {
+            background-color:rgb(123, 120, 120) ;
+            font-size: 5vw;
+            width: 25vw;
+            height:5vw;
+            text-align: center;
+        }
+        .text5
+        {
+            padding-top:1vw;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img1">
+
+            <div class="bgtext">
+                <div class="text">Parallax Website</div>
+            </div>
+
+        </div>
+        <div class="section">
+            <div class="sechead">
+                <h1>Section one</h1>
+            </div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto consequuntur sint, laudantium adipisci
+            doloremque et nobis consequatur fuga harum cumque repellat quis dolor doloribus totam dicta alias reiciendis
+            non? Iste.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam error distinctio est incidunt
+            placeat molestias ratione odit nostrum suscipit. Ab tempora, porro suscipit consequatur atque earum
+            voluptates sunt unde!
+            Itaque doloribus nam ullam cupiditate dolorum quisquam veniam exercitationem quod voluptatibus voluptatem
+            eligendi atque aliquid, at repudiandae? Voluptate deserunt, adipisci repellendus pariatur sed nisi iste id
+            non, tenetur nesciunt voluptatem?
+            Voluptatum, ipsum ab eveniet expedita quos enim excepturi porro aperiam saepe, ipsam quisquam exercitationem
+            in culpa, tempora mollitia aliquid voluptates quae error molestiae? Voluptate ad soluta dicta sunt libero
+            rem.
+            Sit culpa maxime deserunt consequuntur! Ipsum nam placeat itaque et quis accusamus consectetur excepturi
+            illum corporis vel soluta perferendis quo ipsam est quas, corrupti autem dolores commodi minus distinctio
+            cumque!
+            Corrupti enim labore aliquam dignissimos sequi, sed suscipit maxime eum asperiores nobis! Tenetur porro est
+            quod repellat blanditiis. Maiores quos accusamus quisquam accusantium quia neque quidem excepturi nihil ipsa
+            vel!
+            Quaerat molestias animi eligendi voluptatibus veniam expedita ea? Voluptates cupiditate assumenda similique
+            praesentium, provident illo quaerat. Dicta, excepturi? Voluptate quisquam vel fugit fuga reiciendis nisi
+            doloribus repellendus in doloremque inventore?
+            Maiores, unde alias rem voluptates nisi itaque modi a asperiores obcaecati vero placeat esse molestias
+            deserunt error fuga dolores ad vel libero ipsum quam quisquam doloremque inventore dolorum doloribus.
+            Consequuntur.
+
+        </div>
+        <div class="img2">
+            <div class="bgtext2">
+                <div class="text2">
+                    Explore nature
+                </div>
+            </div>
+
+        </div>
+        <div class="section2">
+            <div class="sechead">
+                <h1>Section Two</h1>
+            </div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto consequuntur sint, laudantium adipisci
+            doloremque et nobis consequatur fuga harum cumque repellat quis dolor doloribus totam dicta alias reiciendis
+            non? Iste.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam error distinctio est incidunt
+            placeat molestias ratione odit nostrum suscipit. Ab tempora, porro suscipit consequatur atque earum
+            voluptates sunt unde!
+            Itaque doloribus nam ullam cupiditate dolorum quisquam veniam exercitationem quod voluptatibus voluptatem
+            eligendi atque aliquid, at repudiandae? Voluptate deserunt, adipisci repellendus pariatur sed nisi iste id
+            non, tenetur nesciunt voluptatem?
+            Voluptatum, ipsum ab eveniet expedita quos enim excepturi porro aperiam saepe, ipsam quisquam exercitationem
+            in culpa, tempora mollitia aliquid voluptates quae error molestiae? Voluptate ad soluta dicta sunt libero
+            rem.
+            Sit culpa maxime deserunt consequuntur! Ipsum nam placeat itaque et quis accusamus consectetur excepturi
+            illum corporis vel soluta perferendis quo ipsam est quas, corrupti autem dolores commodi minus distinctio
+            cumque!
+            Corrupti enim labore aliquam dignissimos sequi, sed suscipit maxime eum asperiores nobis! Tenetur porro est
+            quod repellat blanditiis. Maiores quos accusamus quisquam accusantium quia neque quidem excepturi nihil ipsa
+            vel!
+            Quaerat moleaque modi a asperiores obcaecati vero placeat esse molestias deserunt error fuga dolores ad vel
+            libero ipsum quam quisquam doloremque inventore dolorum doloribus. Consequuntur.
+
+        </div>
+        <div class="img3">
+            <div class="bgtext3">
+                <div class="text3">Look,DEEP INTO NATURE</div>
+            </div>
+        </div>
+        <div class="section3">
+            <div class="sechead">
+                <h1>Section Three</h1>
+            </div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto consequuntur sint, laudantium adipisci
+            doloremque et nobis consequatur fuga harum cumque repellat quis dolor doloribus totam dicta alias reiciendis
+            non? Iste.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam error distinctio est incidunt
+            placeat molestias ratione odit nostrum suscipit. Ab tempora, porro suscipit consequatur atque earum
+            voluptates sunt unde!
+            Itaque doloribus nam ullam cupiditate dolorum quisquam veniam exercitationem quod voluptatibus voluptatem
+            eligendi atque aliquid, at repudiandae? Voluptate deserunt, adipisci repellendus pariatur sed nisi iste id
+            non, tenetur nesciunt voluptatem?
+            Voluptatum, ipsum ab eveniet expedita quos enim excepturi porro aperiam saepe, ipsam quisquam exercitationem
+            in culpa, tempora mollitia aliquid voluptates quae error molestiae? Voluptate ad soluta dicta sunt libero
+            rem.
+            Sit culpa maxime deserunt consequuntur! Ipsum nam placeat itaque et quis accusamus consectetur excepturi
+            illum corporis vel soluta perferendis quo ipsam est quas, corrupti autem dolores commodi minus distinctio
+            cumque!
+            Corrupti enim labore aliquam dignissimos sequi, sed suscipit maxime eum asperiores nobis! Tenetur porro est
+            quod repellat blanditiis. Maiores quos accusamus quisquam accusantium quia neque quidem excepturi nihil ipsa
+            vel!
+            Quaerat moleaque modi a asperiores obcaecati vero placeat esse molestias deserunt error fuga dolores ad vel
+            libero ipsum quam quisquam doloremque inventore dolorum doloribus. Consequuntur.
+
+        </div>
+        <div class="img1">
+
+            <div class="bgtext3">
+                <div class="text text5">DO SOME CODDING</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
